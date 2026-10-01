@@ -1,11 +1,13 @@
 /* variáveis para facilidade de temas(limpo e tons pasteis */
+/* Variáveis para facilitar a criação dos temas */
+
 :root {
     --gradiente-fundo: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    --fundo-cartao: #ffffff;
+    --fundo-cartao: #e9c8dc;
     --cor-texto: #2d3748;
-    --cor-primaria: #6c5ce7;
-    --cor-primaria-destaque: #5b4bc4;
-    --cor-borda: #edf2f7;
+    --cor-primaria: #e75cad;
+    --cor-primaria-destaque: #c44b79;
+    --cor-borda: #ec9bca;
     --cor-perigo: #ff7675;
     --cor-concluido: #a0aec0;
 }
@@ -19,38 +21,52 @@ body.modo-escuro {
     --cor-borda: #4a5568;
 }
 
+/* Configuração geral */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background 0.3s, color 0.3s;
 }
 
 body {
-    background: var(--gradiente-fundo);
+
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    padding: 10px;
+
+    transition: background 0.3s, color 0.3s;
 }
+
+/* Cartão principal */
 
 .cartao-aplicacao {
     background: var(--fundo-cartao);
     color: var(--cor-texto);
+
     width: 100%;
     max-width: 420px;
+
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0, 1);
 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    transition: background 0.3s, color 0.3s;
 }
+
+/* Cabeçalho */
 
 .cabecalho-aplicacao {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-bottom: 25px;
 }
 
@@ -59,28 +75,43 @@ body {
     font-weight: 700;
 }
 
+img{
+    max-width: 100px;
+}
+
+/* Botão do tema */
+
 .botao-icone {
     background: transparent;
     border: none;
+
     font-size: 1.2rem;
     color: var(--cor-texto);
-    cursor: pointer;
 
+    cursor: pointer;
 }
+
+/* Campo de entrada */
 
 .caixa-entrada {
     display: flex;
     gap: 10px;
+
     margin-bottom: 20px;
 }
 
 input[type="text"] {
     flex: 1;
-    padding: 12px 15 px;
+
+    padding: 12px 15px;
+
     border: 2px solid var(--cor-borda);
     border-radius: 12px;
+
     outline: none;
+
     font-size: 0.95rem;
+
     background: transparent;
     color: var(--cor-texto);
 }
@@ -89,15 +120,23 @@ input[type="text"]:focus {
     border-color: var(--cor-primaria);
 }
 
+/* Botão adicionar */
+
 .botao-principal {
     background: var(--cor-primaria);
     color: white;
+
     border: none;
+
     padding: 12px 18px;
+
     border-radius: 12px;
+
     font-weight: 600;
+
     cursor: pointer;
-    transition: transform 0.1s background 0.2s;
+
+    transition: transform 0.1s, background 0.2s;
 }
 
 .botao-principal:hover {
@@ -105,27 +144,48 @@ input[type="text"]:focus {
     transform: translateY(-2px);
 }
 
+/* Lista */
+
 .lista-tarefas {
     list-style: none;
+
     max-height: 280px;
+
     overflow-y: auto;
 }
 
+/* Cada tarefa */
+
 .item-tarefa {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     padding: 12px;
+
     background: var(--cor-borda);
+
     border-radius: 10px;
+
     margin-bottom: 10px;
-    animation: aparecer 0.3s esse;
+
+    animation: aparecer 0.3s ease;
 }
+
+.item-tarefa span {
+    word-break: break-word;
+    margin-right: 10px;
+}
+
+/* Tarefa concluída */
 
 .item-tarefa.concluida span {
     text-decoration: line-through;
     color: var(--cor-concluido);
 }
+
+/* Botões da tarefa */
 
 .acoes-tarefa {
     display: flex;
@@ -135,21 +195,31 @@ input[type="text"]:focus {
 .botao-acao {
     background: none;
     border: none;
+
     cursor: pointer;
+
     font-size: 1rem;
+
     color: var(--cor-texto);
 }
 
-.botao-acao.excluir.hover {
+.botao-acao.excluir:hover {
     color: var(--cor-perigo);
 }
 
-.rodape.aplicacao {
+/* Rodapé */
+
+.rodape-aplicacao {
     margin-top: 15px;
+
     font-size: 0.85rem;
+
     color: var(--cor-concluido);
+
     text-align: center;
 }
+
+/* Animação */
 
 @keyframes aparecer {
     from {
