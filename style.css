@@ -2,14 +2,14 @@
 /* Variáveis para facilitar a criação dos temas */
 
 :root {
-    --gradiente-fundo: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --gradiente-fundo: linear-gradient(135deg, #f3d7f8 0%, #fed6e3 100%);
     --fundo-cartao: #e9c8dc;
     --cor-texto: #2d3748;
     --cor-primaria: #e75cad;
     --cor-primaria-destaque: #c44b79;
     --cor-borda: #ec9bca;
     --cor-perigo: #ff7675;
-    --cor-concluido: #a0aec0;
+    --cor-concluido: #c8aec9;
 }
 
 /* Modo escuro */
@@ -44,6 +44,93 @@ body {
 }
 
 /* Cartão principal */
+
+
+/* ================================
+   CARTÃO PRINCIPAL
+================================ */
+
+.cartao-aplicacao {
+    width: 100%;
+    max-width: 680px;
+
+    padding: 35px;
+
+    /* Efeito de vidro */
+    background: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* Bordas */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+
+    /* Sombra */
+    box-shadow:
+        0 30px 70px rgb(227, 227, 235),
+        0 10px 25px rgb(190, 188, 188, 0);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.cartao-aplicacao:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 35px 80px rgba(30, 27, 75, 0.30),
+        0 15px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Detalhe luminoso no topo */
+
+.cartao-aplicacao::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #dda2cc,
+        #e4acda,
+        #cf97c6,
+        #dda2d5
+    );
+
+    background-size: 200%;
+
+    animation: brilho 4s linear infinite;
+}
+
+
+@keyframes brilho {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+
 
 .cartao-aplicacao {
     background: var(--fundo-cartao);
@@ -219,6 +306,27 @@ input[type="text"]:focus {
     text-align: center;
 }
 
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #d10374, transparent 40%),
+        radial-gradient(circle at bottom right, #1c437e, transparent 40%),
+        linear-gradient(135deg, #e7c3eb, #eff6ff);
+
+    color: #1e293b;
+
+    transition: background 0.5s ease;
+}
+
 /* Animação */
 
 @keyframes aparecer {
@@ -232,3 +340,84 @@ input[type="text"]:focus {
         transform: translateY(0);
     }
 }
+
+
+/* ================================
+   RODAPÉ / FOTO
+================================ */
+
+.rodape-aplicacao {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* Pequeno texto acima da foto */
+
+.rodape-aplicacao::before {
+    content: "Minha organização";
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #94a3b8;
+}
+
+
+/* FOTO */
+
+.rodape-aplicacao img {
+    width: 95px;
+    height: 95px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    /* Borda externa */
+
+    border: 4px solid white;
+
+    /* Anel colorido */
+
+    outline: 4px solid #818cf8;
+
+    outline-offset: 3px;
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.25);
+
+    transition: all 0.4s ease;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.rodape-aplicacao img:hover {
+    transform: scale(1.08) rotate(3deg);
+
+    outline-color: #a855f7;
+
+    box-shadow:
+        0 15px 35px rgba(124, 58, 237, 0.35);
+
+        
+    }
